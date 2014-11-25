@@ -244,8 +244,12 @@ int test_get_set_pan(void)
 }
 
 int main(void)
-{
-    transceiver_init(TRANSCEIVER_CC2420);
+{//kernel_pid_t pid=KERNEL_PID_UNDEF;
+
+   transceiver_init(TRANSCEIVER_AT86RF231);
+   transceiver_start();
+	//at86rf231_gpio_spi_interrupts_init();
+	//at86rf231_init(pid);
 
     if (!test_set_channel()) {
         printf("test_set_channel failed.\n");
